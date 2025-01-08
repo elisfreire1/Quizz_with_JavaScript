@@ -1,3 +1,85 @@
-h1{
-    background-color: blueviolet;
+/*1. Style Geral*/
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    background-color: #242940;
+    color: #FFF;
+}
+
+.hide {
+    display: none !important;
+}
+
+#main-title {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #2d425a;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+/*Style Score Container*/
+#score-container{
+    background-color: #cddde8;
+    color: #000;
+    text-align: center;
+    width: 300px;
+    margin: 50px auto;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+#score-container p{
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+/* #score-container #text-score{
+    font-size: 22px;
+    font-weight: bold;
+} */
+
+#score-container #display-score{
+    font-size: 42px;
+    font-weight: bold;
+}
+
+#correct-answers{
+    font-weight: bold;
+    color: #408576;
+}
+
+#questions-qty{
+    font-weight: bold;
+    color: #075eA4;
+}
+
+#restart-btn{
+    background-color: #E78230;
+    color: #FFF;
+    padding: 10px 20px;
+    font-weight: bold;
+    height: 50px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    width: 180px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: .5s;
+    /*m*/
+    text-decoration: none;
+    display: inline-block;    
+}
+
+#restart-btn:hover{
+    background-color: transparent;
+    border-color: #E78230;
+    color: #E78230;
 }
