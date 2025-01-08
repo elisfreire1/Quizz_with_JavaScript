@@ -155,3 +155,19 @@ body {
     background-color: #408576;
     color: #FFF;
 }
+
+/*3. Style Responsive MediaQuery*/
+@media (max-width: 450px){
+    #quizz-container{
+        border: none;
+        width: 100%;
+    }
+
+    #answers-box button{
+        width: 100%;
+    }
+
+    #score-container{
+        width: 90%;
+    }
+}
