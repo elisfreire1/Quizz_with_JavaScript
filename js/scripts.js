@@ -81,7 +81,7 @@ const questions = [
 // função para iniciar o quizz: substituir a tela inicial pela tela inicial do quizz, ou seja, a 1ª pergunta
 function init() {
    // criar a primeira pergunta
-    createQuestion(0); // 0 refere-se à primeira questão, no caso a questão 1 e assim por diante
+    createQuestion(0); // 0 refere-se à primeira questão, no caso, a questão 1 e assim por diante
 }
 
 // função para criar e inserir as alternativas na tela
@@ -98,6 +98,39 @@ function createQuestion(i){ // i refere-se à questão atual
     // alterar o texto da pergunta com array de questões
     questionText.textContent = questions[i].question; // pegar a questão atual representada pelo índice i
     questionNumber.textContent = i + 1; // pegar o número da questão atual, actualQuestion, representada pelo índice i
+
+    // inserir as alternativas a, b, c, d
+    questions[i].answers.forEach(function(answer, i){ // percorrer as respostas da questão atual
+        
+        // cria o template do botão do quizz
+        const answerTemplate = document.querySelector('.answer-template').cloneNode(true); // clonar o template de respostas
+
+        const letterBtn = answerTemplate.querySelector('.btn-letter'); // pegar o botão do template
+        const answerText = answerTemplate.querySelector('.question-answer'); // pegar o texto da resposta
+        
+        letterBtn.textContent = letters[i]; // inserir a letra da alternativa
+        answerText.textContent = answer['answer']; // inserir o texto da resposta
+
+        answerTemplate.setAttribute('correct-answer', answer['correct']); // inserir o atributo de resposta correta no botão. ver pergunta
+
+        // remover hide e answer-template class
+        answerTemplate.classList.remove('hide');
+        answerTemplate.classList.remove('answer-template');
+
+        // inserir a alternativa na tela
+        answersBox.appendChild(answerTemplate); // inserir o botão com a alternativa na tela
+
+        // adicionar evento de click no botão
+        answerTemplate.addEventListener('click', function(){
+            console.log(this);
+        });
+
+        //console.log(answerTemplate);
+    });
+
+    // incrementar o número da questão atual, alterando para próxima questão
+    actualQuestion++; // incrementar a questão atual
+
 }
 
 // inicializar o quizz
