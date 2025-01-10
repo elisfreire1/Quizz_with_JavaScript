@@ -1,4 +1,4 @@
-// Declaração de variáveis
+// Declaração de variáveis Step01
 const question = document.getElementById('question'); // div que contém a pergunta
 const answersBox = document.querySelector('#answers-box'); // div que contém as respostas alternativas
 const quizzContainer = document.querySelector('#quizz-container'); // div que contém o quizz
@@ -8,7 +8,7 @@ const letters = ['a', 'b', 'c', 'd']; // alternativas da questão
 let points = 0; // pontos do usuário: zero pq vai progredir conforme o usuário acerta as questões
 let actualQuestion = 0; // questão atual: zero pq vai progredir conforme o usuário responde as questões
 
-// Perguntas do quizz
+// Perguntas do quizz >> Step02
 const questions = [
     // questão 1
     {
@@ -84,7 +84,7 @@ function init() {
     createQuestion(0); // 0 refere-se à primeira questão, no caso, a questão 1 e assim por diante
 }
 
-// função para criar e inserir as alternativas na tela
+// função para criar e inserir as ALTERNATIVAS na tela >> Step03
 function createQuestion(i){ // i refere-se à questão atual
     //limpar a questão anterior
     const oldButtons = answersBox.querySelectorAll('button'); // pegar todos os botões da questão anterior, no caso, as letras a, b, c, d.
