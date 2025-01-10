@@ -122,7 +122,7 @@ function createQuestion(i){ // i refere-se à questão atual
 
         // adicionar evento de click no botão
         answerTemplate.addEventListener('click', function(){
-            console.log(this);
+            checkAnswer(this);
         });
 
         //console.log(answerTemplate);
@@ -133,5 +133,51 @@ function createQuestion(i){ // i refere-se à questão atual
 
 }
 
-// inicializar o quizz
+// Verificando a resposta do user >> Step04
+function checkAnswer(btn){
+    
+    // selecionar todos os botões da resposta
+    const buttons = answersBox.querySelectorAll('button');
+
+    // verificar se a resposta está correta
+    buttons.forEach(function(button){
+        if(button.getAttribute('correct-answer') === 'true'){ // se a resposta for verdadeira
+            
+            button.classList.add('correct-answer'); // adicionar a classe correct-answer
+
+            // verificar se o usuário acertou a questão
+            if(btn === button){ // se o botão clicado for igual ao botão correto
+                points++; // incrementar os pontos do usuário Nota: points criado no início do código
+            }
+
+        } else {
+
+            button.classList.add('wrong-answer'); // se a resposta for falsa, adicionar a classe wrong-answer
+        }
+    });
+
+    // console.log(points); // para verificar se a lógica funciona acrescentando os pontos do usuário
+
+    // Chamar a próxima pergunta
+    nextQuestion();
+
+}
+
+// Função para a próxima pergunta >> Step05
+function nextQuestion(){
+
+    // timer para usuário ver a resposta
+    setTimeout(function(){
+
+        // verificar se ainda há perguntas
+        if(actualQuestion >= questions.length){ // se a questão atual for maior ou igual ao número de questões
+            // mostrar a tela de score
+            
+        }
+
+        createQuestion(actualQuestion); // chamar a função createQuestion para a próxima questão
+
+    }, 2000); // tempo de espera para a próxima pergunta
+}
+// inicializar o quizz >> Step02
 init(); // chamar a função init para iniciar o quizz
