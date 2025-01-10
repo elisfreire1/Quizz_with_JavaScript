@@ -82,7 +82,7 @@ const questions = [
 function init() {
    // criar a primeira pergunta
     createQuestion(0); // 0 refere-se à primeira questão, no caso, a questão 1 e assim por diante
-}
+} // End function init
 
 // função para criar e inserir as ALTERNATIVAS na tela >> Step03
 function createQuestion(i){ // i refere-se à questão atual
@@ -159,7 +159,7 @@ function checkAnswer(btn){
     // console.log(points); // para verificar se a lógica funciona acrescentando os pontos do usuário
 
     // Chamar a próxima pergunta
-    nextQuestion();
+    nextQuestion(); //criado abaixo
 
 }
 
@@ -171,7 +171,9 @@ function nextQuestion(){
 
         // verificar se ainda há perguntas
         if(actualQuestion >= questions.length){ // se a questão atual for maior ou igual ao número de questões
-            // mostrar a tela de score
+            // mostrar a tela de score >> Step06
+            showScoreQuizz(); // criado abaixo
+            return;
             
         }
 
@@ -179,5 +181,32 @@ function nextQuestion(){
 
     }, 2000); // tempo de espera para a próxima pergunta
 }
+
+// Função para mostrar o score do quizz >> Step07
+
+function showScoreQuizz(){
+    
+    // ocultar o container do quizz com o método .add ou .toggle
+    quizzContainer.classList.add('hide'); // ocultar o container do quizz
+
+    // mostrar o container de score com o método .remove ou .toggle
+    scoreContainer.classList.remove('hide'); // mostrar o container de score
+
+    // calcular os pontos do quizz
+    const score = ((points / questions.length) * 100).toFixed(2);
+    
+    const screenScore = scoreContainer.querySelector('#display-score'); // pegar o id do score
+
+    screenScore.textContent = score.toString(); // inserir o score na tela
+
+    // alterar o número de perguntas corretas
+    const correctAnswers = scoreContainer.querySelector('#correct-answers');
+    correctAnswers.textContent = points; // inserir o número de perguntas corretas
+
+    // alterar o total de perguntas
+    const totalQuestions = scoreContainer.querySelector('#questions-qty');
+    totalQuestions.textContent = questions.length; // inserir o total de perguntas
+}
+
 // inicializar o quizz >> Step02
 init(); // chamar a função init para iniciar o quizz
