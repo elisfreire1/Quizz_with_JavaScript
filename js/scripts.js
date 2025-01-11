@@ -208,5 +208,21 @@ function showScoreQuizz(){
     totalQuestions.textContent = questions.length; // inserir o total de perguntas
 }
 
+// Reiniciar o quizz >> Step08
+
+const restartButton = document.querySelector('#restart'); // pegar o botão de restart
+
+restartButton.addEventListener('click', function(){
+    // zerar as variáveis do quizz
+    actualQuestion = 0; // zerar a questão atual
+    points = 0; // zerar os pontos
+
+    // reiniciar o quizz
+    scoreContainer.classList.add('hide'); // ocultar o container de score
+    quizzContainer.classList.remove('hide'); // mostrar o container do quizz
+
+    init(); // chamar a função init para reiniciar o quizz
+})
+
 // inicializar o quizz >> Step02
 init(); // chamar a função init para iniciar o quizz
