@@ -179,7 +179,7 @@ function nextQuestion(){
 
         createQuestion(actualQuestion); // chamar a função createQuestion para a próxima questão
 
-    }, 2000); // tempo de espera para a próxima pergunta
+    }, 1500); // tempo de espera para a próxima pergunta
 }
 
 // Função para mostrar o score do quizz >> Step07
@@ -197,7 +197,16 @@ function showScoreQuizz(){
     
     const screenScore = scoreContainer.querySelector('#display-score'); // pegar o id do score
 
-    screenScore.textContent = score.toString(); // inserir o score na tela
+    screenScore.textContent = score.toString() + "%"; // inserir o score na tela
+    
+    // exibir a mensagem de parabéns se o usuário acertar todas as perguntas
+    const message = scoreContainer.querySelector('#message');
+    
+    if (points === questions.length) {
+        message.textContent = "Wauuu... Parabéns! Acertou todas!";
+    } else {
+        message.textContent = "A meta é acertar todas! Tente novamente!";
+    };
 
     // alterar o número de perguntas corretas
     const correctAnswers = scoreContainer.querySelector('#correct-answers');
@@ -210,7 +219,7 @@ function showScoreQuizz(){
 
 // Reiniciar o quizz >> Step08
 
-const restartButton = document.querySelector('#restart'); // pegar o botão de restart
+const restartButton = document.querySelector('#restart-btn'); // pegar o botão de restart
 
 restartButton.addEventListener('click', function(){
     // zerar as variáveis do quizz
@@ -222,7 +231,7 @@ restartButton.addEventListener('click', function(){
     quizzContainer.classList.remove('hide'); // mostrar o container do quizz
 
     init(); // chamar a função init para reiniciar o quizz
-})
+});
 
 // inicializar o quizz >> Step02
 init(); // chamar a função init para iniciar o quizz

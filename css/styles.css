@@ -50,6 +50,12 @@ body {
     font-weight: bold;
 }
 
+#message{
+    font-size: 3rem;
+    padding: 15px 0;
+    font-weight: bold;
+}
+
 #correct-answers{
     font-weight: bold;
     color: #408576;
